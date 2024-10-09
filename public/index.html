@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Microservice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Timestamp Microservice</h1>
+        <div class="input-section">
+            <label for="dateInput">Enter a Date or Unix Timestamp:</label>
+            <input type="text" id="dateInput" placeholder="e.g., 2022-10-09 or 1451001600000">
+            <button id="submitBtn">Get Timestamp</button>
+        </div>
+        <div id="result" class="result-section">
+            <p>Unix Timestamp: <span id="unix"></span></p>
+            <p>UTC Date: <span id="utc"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const dateInput = document.getElementById('dateInput').value;
+            const resultDiv = document.getElementById('result');
+            const unixSpan = document.getElementById('unix');
+            const utcSpan = document.getElementById('utc');
+
+            let url = `/api/`;
+            if (dateInput) {
+                url += dateInput;
+            }
+
+            // Fetch data from the server
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        unixSpan.textContent = "Invalid Date";
+                        utcSpan.textContent = "Invalid Date";
+                    } else {
+                        unixSpan.textContent = data.unix;
+                        utcSpan.textContent = data.utc;
+                    }
+                    resultDiv.style.display = 'block';
+                })
+                .catch(error => {
+                    unixSpan.textContent = "Error";
+                    utcSpan.textContent = "Error";
+                    resultDiv.style.display = 'block';
+                });
+        });
+    </script>
+</body>
+</html>

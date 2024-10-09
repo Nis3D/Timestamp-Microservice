@@ -4,13 +4,17 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const timestampRoutes = require('./routes/timestampRoutes');
-
+const timestampRoutes = require('./route/timestampRoutes');
+const path= require('path');
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+
+
+//serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
