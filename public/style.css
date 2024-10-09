@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #aec092;
     color: #333;
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@ body {
 h1 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: #4a90e2;
+    color: #0b0d0e;
 }
 
 .input-section {
@@ -51,7 +51,7 @@ input {
 
 button {
     padding: 10px 20px;
-    background-color: #4a90e2;
+    background-color: #e27a4a;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -60,7 +60,7 @@ button {
 }
 
 button:hover {
-    background-color: #357ab8;
+    background-color: #aebbc6;
 }
 
 .result-section {
@@ -78,5 +78,5 @@ button:hover {
 }
 
 span {
-    font-weight: bold;
+    font-weight: cursive;
 }
