@@ -11,18 +11,18 @@
 
 <li>Default Timestamp:</li>
 <ul>
-<li></li>When no date is provided, it returns the current timestamp (UNIX and UTC).</li>
+<li>When no date is provided, it returns the current timestamp (UNIX and UTC).</li>
 </ul>
-
+<br>
 <li>Error Handling:</li>
 <ul>
  <li>Returns an error message for invalid date inputs.</li>
 </ul
 </ol>
   <br>
-How It Works
-Input: A GET request with a date or timestamp parameter.
-Output: A JSON response containing:
-unix: The UNIX timestamp.
+How It Works<br>
+Input: A GET request with a date or timestamp parameter.<br><br>
+Output: A JSON response containing:<br>
+unix: The UNIX timestamp.<br>
 utc: The UTC date format.
 
